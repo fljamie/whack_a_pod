@@ -189,5 +189,4 @@ Api contains two service calls: color and color-complete. Color is a random
 hexidecimal RGB color value. Color-complete is the same as color, but also
 sends the pod name of the pod that answered the service call.
 
-
-"This is not an official Google Project."
+> Inspired by the original [Whack_a_Pod](https://github.com/tpryan/whack_a_pod) project by `tpryan`
