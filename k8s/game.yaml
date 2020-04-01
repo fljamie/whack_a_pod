@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: game-deployment
+  namespace: wap
+  labels:
+    app: game
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: game
+  template:
+    metadata:
+      labels:
+        app: game
+    spec:
+      containers:
+        - name: game-deployment
+          image: stevenfollis/whackapod-game # TODO: Update to DTR image
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: game
+  namespace: wap
+  labels:
+    app: game
+spec:
+  ports:
+    - port: 8080
+  selector:
+    app: game
+  type: NodePort
